@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta http-equiv="x-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <style>
+      .todolist {
+        margin-top: 30px;
+        
+
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .itemlist {
+        display: flex;
+        justify-content: space-between;
+
+        border-width: 0px;
+        border-bottom: 1px solid black;
+        padding-bottom: 0px;
+
+ background: #e3e188;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+      }
+      .itemlist :hover {
+        display: flex;
+        justify-content: space-between;
+
+        border-width: 0px;
+        border-bottom: 1px solid black;
+        padding-bottom: 0px;
+        background: #7e7c27f1;
+      }
+      .itemlistdata {
+        margin-bottom: 0px;
+        padding-top: 5px;
+        margin-right: auto;
+        width: 100%;
+      }
+      button {
+        padding: 0;
+        border: none;
+        background: none;
+      }
+    </style>
+  </head>
+  <body ><br><br><br>
+    <div class="todolist container mt-4 " id="todolist">
+      <div class="input-group ">
+        <input type="text" class="form-control" style="background: #dfdeaf;" onclick="clearit()" value="Type Here to add" id="item" />
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-secondary"
+            onclick="add()"
+            type="button"
+          >
+            Add to List
+          </button>
+        </div>
+      </div>
+
+      
+      
+
+    <script>
+        function clearit() {
+            document.getElementById("item").value="";
+        }
+      function add() {
+        var newitem = document.getElementById("item").value;
+        if(document.getElementById("item").value!="" && document.getElementById("item").value!="Type Here to add"){
+     
+
+        var h=document.getElementById("todolist").lastElementChild;
+        
+        
+        h.insertAdjacentHTML("afterend", '<div class="itemlist"><p class="itemlistdata">&nbsp;&nbsp;' + newitem + '</p><button onclick="Del(this)">&nbsp;&nbspX&nbsp;&nbsp&nbsp</button</div>');
+        document.getElementById("item").value="Type Here to add";
+    }
+      }
+      function Del(abc) {
+        abc.parentNode.remove();
+      }
+    </script>
+  </body>
+</html>
